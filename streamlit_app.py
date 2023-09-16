@@ -6,6 +6,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import altair as alt
+import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
