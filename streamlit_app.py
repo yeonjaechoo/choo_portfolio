@@ -38,5 +38,5 @@ knn = KNeighborsClassifier(n_neighbors=1)
 # we will fit the model using our training set
 knn.fit(X_train, y_train)
 # using the score method, we will compare the score of model by testing it against the test set data.
-knn.score(X_test, y_test)
-
+pred = knn.score(X_test, y_test)
+print(round(pred, 2))
