@@ -1,7 +1,3 @@
-"""
-# Machine Learning using Iris Dataset.
-"""
-
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -202,4 +198,6 @@ knn = KNeighborsClassifier(n_neighbors=1)
 knn.fit(X_train, y_train)
 # using the score method, we will compare the score of model by testing it against the test set data.
 pred = knn.score(X_test, y_test)
-print(round(pred, 2))
+
+st.write(pred)
+
