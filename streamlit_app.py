@@ -6,7 +6,6 @@ import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-#manually create the iris dataset.
 iris_data = np.array([[5.1, 3.5, 1.4, 0.2],
        [4.9, 3. , 1.4, 0.2],
        [4.7, 3.2, 1.3, 0.2],
@@ -171,13 +170,10 @@ feature_names = ['sepal length (cm)',
  'petal length (cm)',
  'petal width (cm)']
 
-# split the dataframe into a train and test set
 X_train, X_test, y_train, y_test = train_test_split(iris_data, iris_target, random_state=0, shuffle=True)
 
-# create a dataframe using the iris dataset for visualization purpose
 iris_dataframe = pd.DataFrame(X_train, columns=feature_names)
 
-# create a pair-scatter plot using altair
 i_df = iris_dataframe.copy()
 i_df['species'] = y_train
 alt.Chart(i_df).mark_circle().encode(
@@ -192,11 +188,8 @@ alt.Chart(i_df).mark_circle().encode(
     column= ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
 )
 
-# now we will build a predictive model using  the K-nearest neighbor algorithm
 knn = KNeighborsClassifier(n_neighbors=1)
-# we will fit the model using our training set
 knn.fit(X_train, y_train)
-# using the score method, we will compare the score of model by testing it against the test set data.
 pred = knn.score(X_test, y_test)
 
 st.write(pred)
